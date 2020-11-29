@@ -40,7 +40,7 @@ public class Shot extends BasicElement{
      
 
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#00FF00"));
+        graphicsContext.setFill(Paint.valueOf("#0D1F2D"));
         graphicsContext.fillOval(getX(), getY(), 8, 16);
     }    
 }

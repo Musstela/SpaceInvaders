@@ -27,12 +27,12 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
     @Override
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         if (keyCode == KeyCode.LEFT){
-            int dh = isPressed ? -3 : 0;
+            int dh = isPressed ? -4 : 0;
             if(this.getX() < 0) {this.setPosX(0);}
             setDirH(dh);
         }
         if (keyCode == KeyCode.RIGHT){
-            int dh = isPressed ? 3 : 0;
+            int dh = isPressed ? 4 : 0;
             if(this.getX() > 767+16) {this.setPosX(770);}
             setDirH(dh);
         }
@@ -44,7 +44,7 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
     
     @Override
     public void Draw(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Paint.valueOf("#FF0000"));
+        graphicsContext.setFill(Paint.valueOf("#546A7B"));
         graphicsContext.fillRect(getX(), getY()+16, 32, 32);
         graphicsContext.fillRect(getX()+8, getY()-16, 16, 48);        
     }   

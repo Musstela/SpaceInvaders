@@ -11,22 +11,13 @@ import javafx.scene.paint.Paint;
 public class AlienNormal extends BasicElement{
     public AlienNormal(int px,int py){
     	super(px,py);
-    	setSpeed((Game.getInstance().getScore()/35)+2);
+    	setSpeed((Game.getInstance().getScore()/20)+2);
     }
     
     @Override
     public void start(){
         setDirV(1);
     }
-    
-
-    /*public void respawn(){
-    	setPosY(getY() + getDirV() * getSpeed());
-    	setPosY(getLMinV()-100);
-        setPosX(ranAli.nextInt(800-50) + 32);
-        setSpeed((Game.getInstance().getScore()/5)+2);
-    }*/
-    
         
     @Override
     public void Update(){
@@ -44,7 +35,7 @@ public class AlienNormal extends BasicElement{
   
     
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#0000FF"));
+        graphicsContext.setFill(Paint.valueOf("#78BC61"));
         graphicsContext.fillOval(getX(), getY(), 32, 32);
     }    
 }
