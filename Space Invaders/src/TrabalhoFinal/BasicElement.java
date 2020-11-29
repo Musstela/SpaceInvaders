@@ -54,11 +54,11 @@ public abstract class BasicElement implements Character{
         int op1y = outro.getY();
         int op2x = op1x+outro.getLargura();
         int op2y = op1y+outro.getAltura();
-        
+        //|| outro instanceof Shot this instanceof Shot || 
         // Verifica colisão
         if ( ((p1x <= op1x && p2x >= op1x) && (p1y <= op1y && p2y >= op1y)) ||
              ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){
-            if(this instanceof Shot || outro instanceof Shot){
+            if((this instanceof AlienNormal && outro instanceof Shot) || (this instanceof Shot && outro instanceof AlienNormal)){
             	this.deactivate();
             	this.Spawn(Game.getInstance().numAlien());
             	Game.getInstance().eliminate(outro);

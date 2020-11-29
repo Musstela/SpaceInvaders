@@ -33,7 +33,7 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
         }
         if (keyCode == KeyCode.RIGHT){
             int dh = isPressed ? 3 : 0;
-            if(this.getX() > 800) {this.setPosX(786);}
+            if(this.getX() > 767+16) {this.setPosX(770);}
             setDirH(dh);
         }
         if (keyCode == KeyCode.SPACE){
