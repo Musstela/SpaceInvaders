@@ -11,6 +11,7 @@ import javafx.scene.paint.Paint;
 public class AlienNormal extends BasicElement{
     public AlienNormal(int px,int py){
     	super(px,py);
+    	setSpeed((Game.getInstance().getScore()/35)+2);
     }
     
     @Override
@@ -19,26 +20,28 @@ public class AlienNormal extends BasicElement{
     }
     
 
-    
+    /*public void respawn(){
+    	setPosY(getY() + getDirV() * getSpeed());
+    	setPosY(getLMinV()-100);
+        setPosX(ranAli.nextInt(800-50) + 32);
+        setSpeed((Game.getInstance().getScore()/5)+2);
+    }*/
     
         
     @Override
     public void Update(){
-        if (jaColidiu()){
-        	aumentaScore();
-        	Game.getInstance().eliminate(this);
             
-        }else{
-            setPosY(getY() + getDirV() * getSpeed());
-            // Se chegou no lado direito da tela ...
-            if (getY() >= getLMaxV()){
-                // Reposiciona no lado esquerdo e ...
-                setPosY(getLMinV()-100);
-                setPosX(ranAli.nextInt(800-50) + 32);
-                setSpeed((getScore()/5)+2);
+    setPosY(getY() + getDirV() * getSpeed());
+    // Se chegou no lado direito da tela ...
+    if (getY() >= getLMaxV()){
+        // Reposiciona no lado esquerdo e ...
+            setPosY(getLMinV()-100);
+            System.out.println("perdeu");
+            //finalJogo();
+            
             }
-        }
-    }    
+    }
+  
     
     public void Draw(GraphicsContext graphicsContext){
         graphicsContext.setFill(Paint.valueOf("#0000FF"));

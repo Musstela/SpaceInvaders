@@ -12,6 +12,7 @@ import java.util.LinkedList;
 public class Game {
     private static Game game = null;
     private Canhao canhao;
+    private int score = 0;
     private List<Character> activeChars;
     
     private Game(){
@@ -24,6 +25,14 @@ public class Game {
         return(game);
     }
     
+    public List<Character> lista(){
+    	return this.activeChars;
+    }
+    
+    public void aumentaScore() {
+    	score++;
+    }
+    
     public void addChar(Character c){
         activeChars.add(c);
         c.start();
@@ -32,6 +41,16 @@ public class Game {
     public void eliminate(Character c){
         activeChars.remove(c);
     }   
+    
+    public int numAlien() {
+    	int numero = 0;
+    		
+    	for(Character an:activeChars){
+    		if(an instanceof AlienNormal) {numero++;}
+    		}
+    	
+    	return numero;
+    }
 
     public void Start() {
         // Repositório de personagens
@@ -42,7 +61,7 @@ public class Game {
         activeChars.add(canhao);
         
         for(int i=0;i<4;i++) {
-        activeChars.add(new AlienNormal(100+(i*120),60+i*400));
+        activeChars.add(new AlienNormal(100+(i*120),0));
         }
         
         for(Character c:activeChars){
@@ -76,4 +95,9 @@ public class Game {
             c.Draw(graphicsContext);
         }
     }
+
+	public int getScore() {
+		
+		return score;
+	}
 }

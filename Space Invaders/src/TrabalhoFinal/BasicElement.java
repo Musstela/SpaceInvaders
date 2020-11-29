@@ -13,7 +13,6 @@ import javafx.scene.paint.Paint;
 public abstract class BasicElement implements Character{
 	public Random ranAli = new Random();
     private int posX, posY;
-    private int score;
     private int largura, altura;
     private int lminH,lmaxH;
     private int lminV,lmaxV;
@@ -38,35 +37,7 @@ public abstract class BasicElement implements Character{
         lmaxV = (int)(Params.WINDOW_HEIGHT * 0.8);
     }
     
-    @Override
-    public int getX(){
-        return(posX);
-    }
-    
-    @Override
-    public int getY(){
-        return(posY);
-    }
-    
-    @Override
-    public int getAltura(){
-        return(altura);
-    }
-    
    
-    public int getScore(){
-        return(score);
-    }
-    
-    public void aumentaScore() {
-    	score++;
-    }
-    
-    @Override
-    public int getLargura(){
-        return(largura);
-    }
-
     @Override
     public boolean testaColisao(Character outro){
     	
@@ -89,8 +60,11 @@ public abstract class BasicElement implements Character{
              ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){
             if(this instanceof Shot || outro instanceof Shot){
             	this.deactivate();
-            	this.Spawn();
+            	this.Spawn(Game.getInstance().numAlien());
             	Game.getInstance().eliminate(outro);
+            	Game.getInstance().aumentaScore();
+            	System.out.println(Game.getInstance().getScore());
+            	
             }
             
             //outro.setColidiu();
@@ -98,12 +72,35 @@ public abstract class BasicElement implements Character{
         return colidiu;
     }
     
+    public void Spawn(int num) {
+    	
+    	if(num < 6 && this.isActive() == false) {
+    		//if(this.isActive() == false) {
+    			
+    			int aliNovo = ranAli.nextInt(4) + 1;
+    			int pox = (ranAli.nextInt(800-50) + 32);
+    			int poy = (getLMinV()-100);
+    			
+    			switch(aliNovo) {
+    			case 1: Game.getInstance().addChar(new AlienNormal(pox,poy));
+    			break;
+    			case 2: Game.getInstance().addChar(new AlienTiro(pox,poy));
+    			break;
+    			case 3: Game.getInstance().addChar(new AlienTanque(pox,poy));
+    			break;
+    			case 4: Game.getInstance().addChar(new AlienNormal(pox,poy));
+    			break;
+    			}
+    		}
+    	}
+    
+    
     public int getDirH(){
-        return(direction_horizontal);
+    	return(direction_horizontal);
     }
     
     public int getDirV(){
-        return(direction_vertical);
+    	return(direction_vertical);
     }
     
     public int getLMinH(){
@@ -181,26 +178,26 @@ public abstract class BasicElement implements Character{
         return(active);
     }
     
-    public void Spawn() {
-    	if(this.isActive() == false) {
-    		
-    		int aliNovo = ranAli.nextInt(4) + 1;
-    		int pox = (ranAli.nextInt(800-50) + 32);
-    		int poy = (getLMinV()-100);
-    		
-    		
-    		switch(aliNovo) {
-    			case 1: new AlienNormal(pox,poy);
-    				break;
-    			case 2: new AlienTiro(pox,poy);
-    				break;
-    			case 3: new AlienTanque(pox,poy);
-    				break;
-    //			case 4: new AlienZigue(pox,poy);
-    //				break;
-    		}
-		}
+    @Override
+    public int getX(){
+        return(posX);
     }
+    
+    @Override
+    public int getY(){
+        return(posY);
+    }
+    
+    @Override
+    public int getAltura(){
+        return(altura);
+    }
+    
+    @Override
+    public int getLargura(){
+        return(largura);
+    }
+
     
     @Override
     public abstract void start();    
