@@ -14,16 +14,7 @@ public class ShotAlien extends Shot{
         setDirV(+1);        
     }
 		  
-	  public void Update(){
-	        
-        setPosY(getY() + getDirV() * getSpeed());
-        // Se chegou na parte superior da tela ...
-        if (getY() >= getLMaxV()+100){
-            // Desaparece
-           deactivate();
-        }
-    }
-    
+
 	  public void Draw(GraphicsContext graphicsContext){
 	        graphicsContext.setFill(Paint.valueOf("#DE3C4B"));
 	        graphicsContext.fillOval(getX(), getY(), 8, 16);

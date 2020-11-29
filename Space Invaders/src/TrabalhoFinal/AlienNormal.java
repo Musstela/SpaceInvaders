@@ -21,16 +21,19 @@ public class AlienNormal extends BasicElement{
     @Override
     public void Update(){
             
-    setPosY(getY() + getDirV() * getSpeed());
-    // Se chegou no lado direito da tela ...
-    if (getY() >= getLMaxV()){
-        // Reposiciona no lado esquerdo e ...
-            setPosY(getLMinV()-100);
-            //System.out.println("perdeu");
-            //finalJogo();
-            
-            }
-    }
+	    setPosY(getY() + getDirV() * getSpeed());
+	    // Se chegou no lado direito da tela ...
+	    
+	    if (getY() >= getLMaxV()+100){
+	    	Game.getInstance().gameOver();
+	    	
+	    	do {
+	    	setPosX(ranAli.nextInt((786-32)+32));
+	    	setPosY(getLMinV()-100);
+	        setSpeed(1);
+	    	}while(Game.getInstance().getGameOver() == false);
+		}
+	}
   
     
     public void Draw(GraphicsContext graphicsContext){

@@ -92,6 +92,10 @@ public abstract class BasicElement implements Character{
     			int sapeca = 0 ;
     			if(vSapeca == 1) {sapeca = 770;}
     			
+    			int direInic = ranAli.nextInt(2);
+    			int dir = 1;
+    			if(direInic == 1) {dir = -1;}
+    			
     			switch(aliNovo) {
     			case 1: Game.getInstance().addChar(new AlienNormal(pox,poy));
     			break;
@@ -99,7 +103,7 @@ public abstract class BasicElement implements Character{
     			break;
     			case 3: Game.getInstance().addChar(new AlienSapeca(sapeca,poy));
     			break;
-    			case 4: Game.getInstance().addChar(new AlienNormal(pox,poy));
+    			case 4: Game.getInstance().addChar(new AlienGrupo(pox,poy,dir));
     			break;
     			}
     		}

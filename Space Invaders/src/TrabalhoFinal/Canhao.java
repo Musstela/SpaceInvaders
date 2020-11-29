@@ -39,7 +39,7 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
             if(this.getX() > 767+16) {this.setPosX(770);}
             setDirH(dh);
         }
-        if (keyCode == KeyCode.SPACE){
+        if (keyCode == KeyCode.SPACE && Game.getInstance().lista().contains(this)){
             Game.getInstance().addChar(new Shot(getX()+12,getY()-26));
         }
         

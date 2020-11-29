@@ -7,7 +7,7 @@ public class AlienSapeca extends AlienNormal{
 	
 	public AlienSapeca(int px,int py) {
 		super(px,py);
-		setSpeed((Game.getInstance().getScore()/60)+2);
+		setSpeed(getSpeed()/2);
 	}
 	
 	

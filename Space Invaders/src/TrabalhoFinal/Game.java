@@ -11,10 +11,12 @@ import java.util.LinkedList;
  */
 public class Game {
     private static Game game = null;
+    private List<Character> activeChars;
     private Canhao canhao;
+        
+    private boolean gameOver;
     private int vida = 2;
     private int score = 0;
-    private List<Character> activeChars;
     
     private Game(){
     }
@@ -34,6 +36,10 @@ public class Game {
     	score++;
     }
     
+    public boolean getGameOver() {
+    	return gameOver;
+    }
+    
     public void addChar(Character c){
         activeChars.add(c);
         c.start();
@@ -48,8 +54,13 @@ public class Game {
     		vida--;
     	}
     	else{
-    		System.out.println("Voce morreu!");
+    		gameOver();
     	}
+    }
+    
+    public void gameOver() {
+    	activeChars.remove(canhao);
+		gameOver = true;
     }
     
     public int numAlien() {
