@@ -3,8 +3,6 @@ package TrabalhoFinal;
 import java.util.Random;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyCode;
-import javafx.scene.paint.Paint;
 
 /**
  * Represents the basic game character
@@ -54,16 +52,25 @@ public abstract class BasicElement implements Character{
         int op1y = outro.getY();
         int op2x = op1x+outro.getLargura();
         int op2y = op1y+outro.getAltura();
-        //|| outro instanceof Shot this instanceof Shot || 
+         
         // Verifica colisão
         if ( ((p1x <= op1x && p2x >= op1x) && (p1y <= op1y && p2y >= op1y)) ||
              ((p1x <= op2x && p2x >= op2x) && (p1y <= op2y && p2y >= op2y)) ){
-            if((this instanceof AlienNormal && outro instanceof Shot) || (this instanceof Shot && outro instanceof AlienNormal)){
-            	this.deactivate();
+            
+        	if((this instanceof Canhao && outro instanceof ShotAlien) || (this instanceof ShotAlien && outro instanceof Canhao)) {
+        		Game.getInstance().updateVida();
+        		Game.getInstance().eliminate(outro);
+        		//System.out.println("atingiu");
+        	}
+        	
+        	// outro instanceof Shot) || (this instanceof Shot && outro instanceof AlienTanque))
+        	
+        	if((this instanceof AlienNormal && outro instanceof Shot) || (this instanceof Shot && outro instanceof AlienNormal)){
+                            		
+        		this.deactivate();
             	this.Spawn(Game.getInstance().numAlien());
             	Game.getInstance().eliminate(outro);
             	Game.getInstance().aumentaScore();
-            	System.out.println(Game.getInstance().getScore());
             	
             }
             
@@ -81,12 +88,16 @@ public abstract class BasicElement implements Character{
     			int pox = (ranAli.nextInt(800-50) + 32);
     			int poy = (getLMinV()-100);
     			
+    			int vSapeca = ranAli.nextInt(2);
+    			int sapeca = 0 ;
+    			if(vSapeca == 1) {sapeca = 770;}
+    			
     			switch(aliNovo) {
     			case 1: Game.getInstance().addChar(new AlienNormal(pox,poy));
     			break;
     			case 2: Game.getInstance().addChar(new AlienTiro(pox,poy));
     			break;
-    			case 3: Game.getInstance().addChar(new AlienTanque(pox,poy));
+    			case 3: Game.getInstance().addChar(new AlienSapeca(sapeca,poy));
     			break;
     			case 4: Game.getInstance().addChar(new AlienNormal(pox,poy));
     			break;
@@ -94,7 +105,7 @@ public abstract class BasicElement implements Character{
     		}
     	}
     
-    
+
     public int getDirH(){
     	return(direction_horizontal);
     }

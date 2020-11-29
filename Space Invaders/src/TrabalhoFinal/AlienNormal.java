@@ -1,7 +1,6 @@
 package TrabalhoFinal;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Paint;
 
 /**
@@ -11,7 +10,7 @@ import javafx.scene.paint.Paint;
 public class AlienNormal extends BasicElement{
     public AlienNormal(int px,int py){
     	super(px,py);
-    	setSpeed((Game.getInstance().getScore()/20)+2);
+    	setSpeed((Game.getInstance().getScore()/40)+2);
     }
     
     @Override
@@ -27,7 +26,7 @@ public class AlienNormal extends BasicElement{
     if (getY() >= getLMaxV()){
         // Reposiciona no lado esquerdo e ...
             setPosY(getLMinV()-100);
-            System.out.println("perdeu");
+            //System.out.println("perdeu");
             //finalJogo();
             
             }

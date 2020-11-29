@@ -12,6 +12,7 @@ import java.util.LinkedList;
 public class Game {
     private static Game game = null;
     private Canhao canhao;
+    private int vida = 2;
     private int score = 0;
     private List<Character> activeChars;
     
@@ -42,6 +43,15 @@ public class Game {
         activeChars.remove(c);
     }   
     
+    public void updateVida() {
+    	if(vida <= 2 && vida > 0) {
+    		vida--;
+    	}
+    	else{
+    		System.out.println("Voce morreu!");
+    	}
+    }
+    
     public int numAlien() {
     	int numero = 0;
     		
@@ -52,7 +62,7 @@ public class Game {
     	return numero;
     }
 
-    public void Start() {
+	public void Start() {
         // Repositório de personagens
         activeChars = new LinkedList();
         
@@ -60,7 +70,7 @@ public class Game {
         canhao = new Canhao(400,550);
         activeChars.add(canhao);
         
-        for(int i=0;i<4;i++) {
+        for(int i=0;i<5;i++) {
         activeChars.add(new AlienNormal(100+(i*120),0));
         }
         

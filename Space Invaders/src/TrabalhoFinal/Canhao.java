@@ -9,7 +9,10 @@ import javafx.scene.paint.Paint;
  * @author Bernardo Copstein, Rafael Copstein
  */
 public class Canhao extends BasicElement implements KeyboardCtrl{
-    public Canhao(int px,int py){
+   
+	public int vida = 3;
+	
+	public Canhao(int px,int py){
         super(px,py);
     }    
     
@@ -27,12 +30,12 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
     @Override
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         if (keyCode == KeyCode.LEFT){
-            int dh = isPressed ? -4 : 0;
+            int dh = isPressed ? -5: 0;
             if(this.getX() < 0) {this.setPosX(0);}
             setDirH(dh);
         }
         if (keyCode == KeyCode.RIGHT){
-            int dh = isPressed ? 4 : 0;
+            int dh = isPressed ? 5 : 0;
             if(this.getX() > 767+16) {this.setPosX(770);}
             setDirH(dh);
         }
