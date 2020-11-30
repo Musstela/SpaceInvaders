@@ -38,7 +38,7 @@ public class AlienGrupo extends AlienNormal{
 	
 	
 	 public void Draw(GraphicsContext graphicsContext){
-	        graphicsContext.setFill(Paint.valueOf("#836FFF"));
+	        graphicsContext.setFill(Paint.valueOf("#8370FF"));
 	        graphicsContext.fillOval(getX(), getY(), 64, 32);
 	        
 	        

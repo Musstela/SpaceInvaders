@@ -52,14 +52,26 @@ public class Main extends Application {
             {
                 long deltaTime = currentNanoTime - lastNanoTime;
                 
+                
                 Game.getInstance().Update(currentNanoTime, deltaTime);
+                
                 gc.clearRect(0, 0, Params.WINDOW_WIDTH, Params.WINDOW_HEIGHT);
+                Game.getInstance().draw(gc);
+                Game.getInstance().score(gc);
+                Game.getInstance().vida(gc);
+                Game.getInstance().estrela(gc);
                 Game.getInstance().Draw(gc);
+                
+                if(Game.getInstance().getGameOver() == true) {
+                	Game.getInstance().creditos(gc);
+                }
                 
                 lastNanoTime = currentNanoTime;
             }
             
         }.start();
+        
+        
 
         // Show window
         stage.show();

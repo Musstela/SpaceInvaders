@@ -16,7 +16,7 @@ public class AlienTiro extends AlienNormal{
 	}
 	
 	public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#DE3C4B"));
+        graphicsContext.setFill(Paint.valueOf("#FE654F"));
         graphicsContext.fillOval(getX(), getY(), 32, 32);
     }   
 }

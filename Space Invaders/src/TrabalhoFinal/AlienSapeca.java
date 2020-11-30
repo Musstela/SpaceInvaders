@@ -12,7 +12,7 @@ public class AlienSapeca extends AlienNormal{
 	
 	
 	public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#E5C1BD"));
+        graphicsContext.setFill(Paint.valueOf("#EF5773"));
         graphicsContext.fillOval(getX(), getY(), 32, 32);
     } 
 }    

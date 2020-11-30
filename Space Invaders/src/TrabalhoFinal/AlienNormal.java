@@ -37,7 +37,7 @@ public class AlienNormal extends BasicElement{
   
     
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#78BC61"));
+        graphicsContext.setFill(Paint.valueOf("#91C87E"));
         graphicsContext.fillOval(getX(), getY(), 32, 32);
     }    
 }

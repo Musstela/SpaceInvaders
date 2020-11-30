@@ -44,10 +44,10 @@ public class Canhao extends BasicElement implements KeyboardCtrl{
         }
         
     }
-    
+    //2C2C54 EC6A32
     @Override
     public void Draw(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Paint.valueOf("#546A7B"));
+        graphicsContext.setFill(Paint.valueOf("#F8ED77"));
         graphicsContext.fillRect(getX(), getY()+16, 32, 32);
         graphicsContext.fillRect(getX()+8, getY()-16, 16, 48);        
     }   

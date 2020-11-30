@@ -28,10 +28,10 @@ public class Shot extends BasicElement{
             deactivate();
         }
     }
-     
+    //EBEBEB
 
     public void Draw(GraphicsContext graphicsContext){
-        graphicsContext.setFill(Paint.valueOf("#0D1F2D"));
+        graphicsContext.setFill(Paint.valueOf("#F4E32A"));
         graphicsContext.fillOval(getX(), getY(), 8, 16);
     }    
 }

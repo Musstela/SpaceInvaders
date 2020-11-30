@@ -2,6 +2,10 @@ package TrabalhoFinal;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
+
 import java.util.List;
 import java.util.LinkedList;
 
@@ -27,6 +31,39 @@ public class Game {
         }
         return(game);
     }
+    
+    public void estrela(GraphicsContext gc) {
+    	for(int i =0; i< 4; i++) {
+    		for(int j=0;j<6;j++) {
+	    	gc.fillRect((200*i)+100, 140*j, 4, 4);
+	    	gc.setFill(Color.WHITE);
+    		}
+    	}
+    }
+    
+    public void draw(GraphicsContext gc) {
+    	gc.setFill(Color.grayRgb(20));
+    	gc.fillRect(0, 0, 800, 600);
+    }
+    
+    
+    public void score(GraphicsContext gc) {
+    	if(gameOver==false) {
+    	gc.setTextAlign(TextAlignment.CENTER);
+    	gc.setFont(Font.font(20));
+    	gc.setFill(Color.WHITE);
+    	gc.fillText("Score: "+score, 60, 20);
+    	}
+    }
+    
+    public void vida(GraphicsContext gc) {
+    	if(gameOver == false) {
+    	gc.setTextAlign(TextAlignment.CENTER);
+    	gc.setFont(Font.font(20));
+    	gc.setFill(Color.WHITE);
+    	gc.fillText("Vidas restantes: "+(vida+1), 700, 20);
+    	}
+	}
     
     public List<Character> lista(){
     	return this.activeChars;
@@ -62,6 +99,15 @@ public class Game {
     	activeChars.remove(canhao);
 		gameOver = true;
     }
+    
+    public void creditos(GraphicsContext gc) {
+		
+    	gc.setTextAlign(TextAlignment.CENTER);
+    	gc.setFont(Font.font(40));
+    	gc.setFill(Color.YELLOW);
+    	gc.fillText("Game Over \n Sua pontuação foi de " + score + " pontos", 400, 250);
+		
+	}
     
     public int numAlien() {
     	int numero = 0;
@@ -105,8 +151,6 @@ public class Game {
         }
     }
     
-    
-    
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         canhao.OnInput(keyCode, isPressed);
     }
@@ -121,4 +165,5 @@ public class Game {
 		
 		return score;
 	}
+	
 }
