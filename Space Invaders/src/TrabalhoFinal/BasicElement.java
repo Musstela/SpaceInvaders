@@ -85,7 +85,7 @@ public abstract class BasicElement implements Character{
     		//if(this.isActive() == false) {
     			
     			int aliNovo = ranAli.nextInt(4) + 1;
-    			int pox = (ranAli.nextInt(800-50) + 32);
+    			int pox = (ranAli.nextInt(750-50) + 32);
     			int poy = (getLMinV()-100);
     			
     			int vSapeca = ranAli.nextInt(2);
