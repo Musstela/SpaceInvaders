@@ -18,7 +18,7 @@ public class AlienGrupo extends AlienNormal{
 	    setPosY(getY() + getDirV() * getSpeed());
 	    setPosX(getX() + getDirH() * getSpeed());
 	    
-	    if(getX() == 747){
+	    if(getX() == 740){
 	    	setDirH(-1);
 	    }else if(getX() == 0) {
 	    	setDirH(1);

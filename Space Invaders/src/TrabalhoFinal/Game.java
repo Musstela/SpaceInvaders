@@ -7,6 +7,16 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedList;
 
 /**
@@ -15,8 +25,8 @@ import java.util.LinkedList;
  */
 public class Game {
     private static Game game = null;
-    private List<Character> activeChars;
     private Canhao canhao;
+    private List<Character> activeChars;
         
     private boolean gameOver;
     private int vida = 2;
@@ -31,6 +41,7 @@ public class Game {
         }
         return(game);
     }
+    
     
     public void estrela(GraphicsContext gc) {
     	for(int i =0; i< 4; i++) {
@@ -51,7 +62,7 @@ public class Game {
     	if(gameOver==false) {
     	gc.setTextAlign(TextAlignment.CENTER);
     	gc.setFont(Font.font(20));
-    	gc.setFill(Color.WHITE);
+    	gc.setFill(Color.YELLOW);
     	gc.fillText("Score: "+score, 60, 20);
     	}
     }
@@ -60,7 +71,7 @@ public class Game {
     	if(gameOver == false) {
     	gc.setTextAlign(TextAlignment.CENTER);
     	gc.setFont(Font.font(20));
-    	gc.setFill(Color.WHITE);
+    	gc.setFill(Color.YELLOW);
     	gc.fillText("Vidas restantes: "+(vida+1), 700, 20);
     	}
 	}
@@ -150,6 +161,76 @@ public class Game {
             }
         }
     }
+    
+  /*  public String getHighScore() {
+
+    	FileReader readFile = null;
+    	BufferedReader reader = null;
+    	
+    	try {
+			readFile = new FileReader("highscore.dat");
+			reader = new BufferedReader(readFile);
+			//return reader.readLine();
+		} 
+    	catch (FileNotFoundException e) 
+    	{
+			return "0";
+		}
+    	finally 
+    	{
+    		try {
+    			if(reader != null) {
+    			reader.close();
+    			}
+			}
+    		catch (Exception e) {
+				e.printStackTrace();
+			}
+    		
+    	}
+	
+    	
+    	return null;
+    }
+    
+    public void checkScore() {
+    	
+    	if(highScore.equals("")) {
+    		return;
+    	}
+    	
+    	if(score > Integer.parseInt(highScore.split(":")[1])) {
+    		
+    		String name = JOptionPane.showInputDialog("Voce alcançou um novo recorde!\n Qual seu nome?");
+    		
+    		File scoreFile = new File("highScore.dat");
+    		if(!scoreFile.exists()) {
+    			try {
+					scoreFile.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+    		}
+    		
+    		FileWriter writeFile = null;
+    		BufferedWriter writer = null;
+    		
+    		try 
+    		{
+    			writeFile = new FileWriter(scoreFile);
+    			writer = new BufferedWriter(writeFile);
+    			writer.write(this.highScore);
+    		}catch (Exception e) {}
+    		
+    		finally {
+				try
+				{
+					if(writer != null)
+						writer.close();
+				}catch (Exception e) {}
+			}
+    	}
+    }*/
     
     public void OnInput(KeyCode keyCode, boolean isPressed) {
         canhao.OnInput(keyCode, isPressed);

@@ -63,6 +63,7 @@ public class Main extends Application {
                 Game.getInstance().Draw(gc);
                 
                 if(Game.getInstance().getGameOver() == true) {
+                	//Game.getInstance().checkScore();
                 	Game.getInstance().creditos(gc);
                 }
                 
@@ -75,6 +76,7 @@ public class Main extends Application {
 
         // Show window
         stage.show();
+        
     }
     
     public static void main(String args[]) {
