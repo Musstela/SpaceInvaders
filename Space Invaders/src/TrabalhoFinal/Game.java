@@ -20,8 +20,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- * Handles the game lifecycle and behavior
- * @author Bernardo Copstein and Rafael Copstein
+ * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_
  */
 public class Game {
     private static Game game = null;
