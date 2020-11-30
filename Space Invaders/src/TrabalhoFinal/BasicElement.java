@@ -5,9 +5,8 @@ import java.util.Random;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
- * Represents the basic game character
- * @author Bernardo Copstein and Rafael Copstein
- */ 
+ * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
+ */
 public abstract class BasicElement implements Character{
 	public Random ranAli = new Random();
     private int posX, posY;

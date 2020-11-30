@@ -5,6 +5,9 @@ import javafx.scene.paint.Paint;
 
 public class AlienTiro extends AlienNormal{
 	
+	/**
+	 * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
+	 */
 	
 	public AlienTiro(int px, int py) {
 		super(px, py);

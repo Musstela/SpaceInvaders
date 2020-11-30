@@ -5,8 +5,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Paint;
 
 /**
- * Represents the game Gun
- * @author Bernardo Copstein, Rafael Copstein
+ * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
  */
 public class Canhao extends BasicElement implements KeyboardCtrl{
    

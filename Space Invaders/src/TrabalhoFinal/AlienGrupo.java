@@ -5,7 +5,9 @@ import javafx.scene.paint.Paint;
 
 public class AlienGrupo extends AlienNormal{
 	
-	
+	/**
+	 * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
+	 */
 
 	public AlienGrupo(int px, int py,int di) {
 		super(px,py);

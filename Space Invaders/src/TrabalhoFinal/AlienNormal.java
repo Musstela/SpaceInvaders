@@ -4,8 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Paint;
 
 /**
- * Represents a simple ball that crosses the screen over and over again
- * @author Bernardo Copstein and Rafael Copstein
+ * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
  */
 public class AlienNormal extends BasicElement{
     public AlienNormal(int px,int py){

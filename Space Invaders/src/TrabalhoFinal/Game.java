@@ -20,7 +20,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_
+ * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
+ * 
+ * https://github.com/Musstela/SpaceInvaders
  */
 public class Game {
     private static Game game = null;

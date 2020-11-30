@@ -3,7 +3,12 @@ package TrabalhoFinal;
 import java.util.Random;
 
 public class Params{
-    public static final String WINDOW_TITLE = "My Game V1.0";
+	
+	/**
+	 * Arthur_Maia_20108454_Luiz_Felipe_Oliveira_20103391-7_Felipe_Fonseca_Fagundes_20108219-5
+	 */
+	
+    public static final String WINDOW_TITLE = "SpaceInvaders dos guri";
     public static final int WINDOW_WIDTH = 800;
     public static final int WINDOW_HEIGHT = 600;
     
